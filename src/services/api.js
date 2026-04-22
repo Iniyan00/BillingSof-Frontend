@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_URL = '/api';
+// API base URL: uses environment variable in production (Netlify → Render backend)
+// Falls back to /api for local dev (Vite proxy handles it)
+const API_URL = import.meta.env.VITE_API_URL || '/api';
 
 // Create axios instance
 const api = axios.create({
